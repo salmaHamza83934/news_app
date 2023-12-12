@@ -19,12 +19,18 @@ class ApiManager {
       throw e;
     }
   }
-  static Future<NewsResponse> getNewsBySourceId(String sourceId, int? page) async {
+
+  static Future<NewsResponse> getNewsBySourceId(
+      {required String sourceId, int page = 1}) async {
     /*
     https://newsapi.org/v2/everything?q=bitcoin&apiKey=d791296979b843a68ad75b2d5a73e86c
     */
-    Uri url = Uri.https(ApiConstants.baseUrl, ApiConstants.newsApi,
-        {'apiKey': 'd791296979b843a68ad75b2d5a73e86c', 'sources': sourceId, 'page': page.toString()??'1' });
+    Uri url = Uri.https(ApiConstants.baseUrl, ApiConstants.newsApi, {
+      'apiKey': 'd791296979b843a68ad75b2d5a73e86c',
+      'sources': sourceId,
+      'pageSize': '20',
+      'page': '$page'
+    });
     try {
       var response = await http.get(url);
       var json = jsonDecode(response.body);
@@ -34,9 +40,9 @@ class ApiManager {
     }
   }
 
-  static getSearch(String value)async{
+  static Future<NewsResponse> getSearch(String query) async {
     Uri url = Uri.https(ApiConstants.baseUrl, ApiConstants.newsApi,
-        {'apiKey': 'd791296979b843a68ad75b2d5a73e86c','q':value});
+        {'apiKey': 'd791296979b843a68ad75b2d5a73e86c', 'q': query});
     try {
       var response = await http.get(url);
       var json = jsonDecode(response.body);

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app/models/category.dart';
 import 'package:news_app/modules/category/category_fragment.dart';
 import 'package:news_app/modules/category/category_details.dart';
-import 'package:news_app/modules/search/search_view.dart';
+import 'package:news_app/modules/search/search.dart';
 import 'package:news_app/modules/settings/settings.dart';
 import 'package:news_app/modules/tabs/home_drawer.dart';
 class HomeScreen extends StatefulWidget {
@@ -26,15 +26,13 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Image.asset('assets/images/pattern.png'),
         ),
         Scaffold(
+          backgroundColor: Colors.transparent,
           drawer: Drawer(
             child: HomeDrawer(
               onDrawerClick: onDrawerClick,
             ),
           ),
           appBar: AppBar(
-            actions: [
-              IconButton(onPressed: (){Navigator.pushNamed(context, SearchView.routeName);}, icon: Icon(Icons.search))
-            ],
             title: Text(
                     selectedDrawerItem == HomeDrawer.drawerSettingsId
                         ? 'Settings'
@@ -42,6 +40,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             ? 'News App!'
                             : selectedCategory!.title,
                   ),
+            actions: [
+              IconButton(onPressed: (){showSearch(context: context, delegate: SearchView());}, icon: Icon(Icons.search))
+            ],
           ),
           body: selectedDrawerItem == HomeDrawer.drawerSettingsId
               ? Settings()

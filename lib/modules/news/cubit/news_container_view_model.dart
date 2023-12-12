@@ -8,7 +8,7 @@ class NewsContainerViewModel extends Cubit<NewsState> {
   void getNewsBySourceId(String sourceId, int? page) async {
     try {
       emit(NewsLoadingState());
-      var response = await ApiManager.getNewsBySourceId(sourceId,page);
+      var response = await ApiManager.getNewsBySourceId(sourceId: sourceId);
       if (response.status == 'error') {
         emit(NewsErrorState(errorMessage: response.message));
       } else {

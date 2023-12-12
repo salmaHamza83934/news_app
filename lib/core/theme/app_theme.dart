@@ -7,7 +7,7 @@ class AppTheme{
   static Color primaryColor=Color(0xFF39A552);
    static ThemeData lightTheme=ThemeData(
      primaryColor: primaryColor,
-     scaffoldBackgroundColor: Colors.transparent,
+     scaffoldBackgroundColor: Colors.white,
      appBarTheme: AppBarTheme(
        centerTitle: true,
        toolbarHeight: 70,
@@ -42,5 +42,6 @@ class AppTheme{
          fontWeight: FontWeight.w300,
        ),
      ),
+     inputDecorationTheme: InputDecorationTheme(focusedBorder: OutlineInputBorder(borderSide: BorderSide.none))
    );
 }
