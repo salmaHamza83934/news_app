@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../models/SourceResponse.dart';
 
@@ -12,10 +13,10 @@ class TabItem extends StatelessWidget {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     return Container(
-      margin: EdgeInsets.only(top: 15),
-      padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+      margin: EdgeInsets.only(top: 15.h),
+      padding: EdgeInsets.symmetric(horizontal: 15.w,vertical: 10.h),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(20.r),
           border: Border.all(color: theme.primaryColor, width: 3),
           color: isSelected ? theme.primaryColor : Colors.transparent),
       child: Text(

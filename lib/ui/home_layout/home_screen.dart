@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/models/category.dart';
-import 'package:news_app/modules/category/category_fragment.dart';
-import 'package:news_app/modules/category/category_details.dart';
-import 'package:news_app/modules/search/search.dart';
-import 'package:news_app/modules/settings/settings.dart';
-import 'package:news_app/modules/tabs/home_drawer.dart';
+import '../category/category_details.dart';
+import '../category/category_fragment.dart';
+import '../search/search.dart';
+import '../settings/settings.dart';
+import '../tabs/home_drawer.dart';
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'home_screen';
 
@@ -33,13 +33,14 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           appBar: AppBar(
+            iconTheme: IconThemeData(color: Colors.white),
             title: Text(
                     selectedDrawerItem == HomeDrawer.drawerSettingsId
                         ? 'Settings'
                         : selectedCategory == null
                             ? 'News App!'
                             : selectedCategory!.title,
-                  ),
+                  style: TextStyle(color: Colors.white),),
             actions: [
               IconButton(onPressed: (){showSearch(context: context, delegate: SearchView());}, icon: Icon(Icons.search))
             ],

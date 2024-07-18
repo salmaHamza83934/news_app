@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme{
@@ -9,8 +10,15 @@ class AppTheme{
      primaryColor: primaryColor,
      scaffoldBackgroundColor: Colors.white,
      appBarTheme: AppBarTheme(
+       titleTextStyle: GoogleFonts.exo(
+         fontSize: 22.sp,
+         color: Colors.white,
+         fontWeight: FontWeight.w400,
+
+       ),
+       iconTheme: IconThemeData(color: Colors.white),
        centerTitle: true,
-       toolbarHeight: 70,
+       toolbarHeight: 70.h,
        color: primaryColor,
        shape: RoundedRectangleBorder(
          borderRadius: BorderRadius.only(
@@ -21,23 +29,23 @@ class AppTheme{
      ),
      textTheme: TextTheme(
        titleLarge: GoogleFonts.exo(
-         fontSize: 22,
+         fontSize: 22.sp,
          color: Colors.white,
          fontWeight: FontWeight.w400,
 
        ),
        bodyLarge: GoogleFonts.poppins(
-         fontSize: 24,
+         fontSize: 24.sp,
          color: Colors.black,
          fontWeight: FontWeight.w700,
        ),
        bodyMedium: GoogleFonts.poppins(
-         fontSize: 14,
+         fontSize: 14.sp,
          color: Colors.black,
          fontWeight: FontWeight.w500,
        ),
        bodySmall: GoogleFonts.poppins(
-         fontSize: 13,
+         fontSize: 13.sp,
          color: Colors.black,
          fontWeight: FontWeight.w300,
        ),

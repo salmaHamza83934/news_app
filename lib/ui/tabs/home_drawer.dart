@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeDrawer extends StatelessWidget {
   static const int drawerCategoryId=1;
@@ -14,7 +15,7 @@ class HomeDrawer extends StatelessWidget {
     return Column(
       children: [
         Container(
-          padding: EdgeInsets.all(40),
+          padding: EdgeInsets.all(40.r),
           height: mediaQuery.height*0.2,
           width: mediaQuery.width,
           color: theme.primaryColor,
@@ -25,11 +26,11 @@ class HomeDrawer extends StatelessWidget {
             onDrawerClick(HomeDrawer.drawerCategoryId);
           },
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(8.r),
             child: Row(
               children: [
                 Icon(Icons.list,size: 40,),
-                SizedBox(width: 20,),
+                SizedBox(width: 20.w),
                 Text('Categories',style: theme.textTheme.bodyLarge,)
               ],
             ),
@@ -40,11 +41,11 @@ class HomeDrawer extends StatelessWidget {
             onDrawerClick(HomeDrawer.drawerSettingsId);
           },
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(8.r),
             child: Row(
               children: [
                 Icon(Icons.settings,size: 40,),
-                SizedBox(width: 20,),
+                SizedBox(width: 20.w,),
                 Text('Settings',style: theme.textTheme.bodyLarge,)
               ],
             ),

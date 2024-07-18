@@ -47,10 +47,11 @@ class SearchView extends SearchDelegate {
           var newsList = snapshot.data?.articles ?? [];
           return ListView.builder(
             itemBuilder: (context, index) {
-              return NewsItem(news: newsList[index]);
-            },
-            itemCount: newsList.length,
-          );
+            return InkWell(onTap: () {
+              Navigator.pushNamed(context, NewsDescription.routeName,
+                  arguments: newsList[index]);
+            }, child: NewsItem(news: newsList[index]));
+          });
         });
   }
   @override

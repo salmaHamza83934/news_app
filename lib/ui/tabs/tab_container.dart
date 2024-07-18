@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/modules/news/news_container.dart';
-import 'package:news_app/modules/tabs/tab_item.dart';
-
+import 'package:news_app/ui/tabs/tab_item.dart';
 import '../../models/SourceResponse.dart';
+import '../news/news_container.dart';
 
 class TabContainer extends StatefulWidget {
   List<Sources> sourcesList;
@@ -21,6 +20,9 @@ class _TabContainerState extends State<TabContainer> {
         child: Column(
           children: [
             TabBar(
+              padding: EdgeInsets.zero,
+              dividerColor: Colors.transparent,
+              labelColor: Colors.transparent,
                 isScrollable: true,
                 indicatorColor: Colors.transparent,
                 onTap: (index) {

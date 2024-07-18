@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/modules/category/category_item.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../models/category.dart';
+import 'category_item.dart';
 
 class CategoryFragment extends StatelessWidget {
   static String routeName='category_fragment';
@@ -14,7 +14,7 @@ class CategoryFragment extends StatelessWidget {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 5.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -24,11 +24,11 @@ class CategoryFragment extends StatelessWidget {
                 theme.textTheme.bodyLarge!.copyWith(color: Color(0xFF4F5A69)),
           ),
           SizedBox(
-            height: 20,
+            height: 20.h,
           ),
           Expanded(
             child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, mainAxisSpacing: 15, crossAxisSpacing: 15),
               itemBuilder: (context, index) {
                 return InkWell(

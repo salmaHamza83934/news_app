@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../models/category.dart';
 
@@ -15,10 +16,10 @@ class CategoryItem extends StatelessWidget {
       decoration: BoxDecoration(
         color: category.color,
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20),
-          bottomRight: Radius.circular(index%2==0?20:0),
-          bottomLeft: Radius.circular(index%2==0?0:20),
+          topLeft: Radius.circular(20.r),
+          topRight: Radius.circular(20.r),
+          bottomRight: Radius.circular(index%2==0?20.r:0),
+          bottomLeft: Radius.circular(index%2==0?0:20.r),
       ),
       ),
       child: Column(

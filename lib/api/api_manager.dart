@@ -5,12 +5,24 @@ import 'package:news_app/models/SourceResponse.dart';
 import 'package:news_app/api/api_constants.dart';
 
 class ApiManager {
-  static Future<SourceResponse> getSource(String categoryId) async {
+
+  ApiManager._();
+
+  static ApiManager? _instance;
+
+  static ApiManager getInstance(){
+    _instance??=ApiManager._();
+    return _instance!;
+  }
+
+   Future<SourceResponse> getSource(String categoryId) async {
     /*
    https://newsapi.org/v2/top-headlines/sources?apiKey=d791296979b843a68ad75b2d5a73e86c
   */
     Uri url = Uri.https(ApiConstants.baseUrl, ApiConstants.sourceApi,
-        {'apiKey': 'd791296979b843a68ad75b2d5a73e86c', 'category': categoryId});
+        {'apiKey': 'd791296979b843a68ad75b2d5a73e86c', 'category': categoryId,
+        //'language':'en'
+        });
     try {
       var response = await http.get(url);
       var json = jsonDecode(response.body);
@@ -20,7 +32,7 @@ class ApiManager {
     }
   }
 
-  static Future<NewsResponse> getNewsBySourceId(
+   Future<NewsResponse> getNewsBySourceId(
       {required String sourceId, int page = 1}) async {
     /*
     https://newsapi.org/v2/everything?q=bitcoin&apiKey=d791296979b843a68ad75b2d5a73e86c
@@ -29,7 +41,8 @@ class ApiManager {
       'apiKey': 'd791296979b843a68ad75b2d5a73e86c',
       'sources': sourceId,
       'pageSize': '20',
-      'page': '$page'
+      'page': '$page',
+      //'language':'en'
     });
     try {
       var response = await http.get(url);
